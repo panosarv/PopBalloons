@@ -31,6 +31,8 @@ function makeShapeAppear() {
     document.querySelector("#shape").style.left=left;
     let col=getRandomColor();
     document.querySelector("#shape").style.backgroundColor=col;
+    document.querySelector("#shape").style.cursor="pointer";
+
     newShapeTime=new Date().getTime()-start;   
 }
 
@@ -44,15 +46,18 @@ function appearAfterDelay() {
 
 
 const newGame=document.querySelector("#reset");
-let end_time=document.createElement("div");
-newGame.addEventListener("click",function(){
+const newStartGame=document.querySelector("#start")
+const end_time=document.querySelector("#final-reaction-time");
+newGame.addEventListener("click",()=>startGame());
+newStartGame.addEventListener("click",()=>startGame());
+startGame=function(){
     totalTime=0;
     let clickTime=0;
     let dt=0;
     attempts=0;
     start = new Date().getTime();
     appearAfterDelay();
-    document.querySelector("#gameOver").style.display="none";
+    document.querySelector("#modal-container").style.display="none";
     document.querySelector("#attempts").textContent=maxAttempts-attempts;
     document.querySelector("#timeTaken").textContent=dt+"s";
     document.querySelector("#totalTime").textContent=totalTime+"s";
@@ -75,11 +80,11 @@ newGame.addEventListener("click",function(){
             totalTime=Number((totalTime+dt).toFixed(5));
             document.querySelector("#attempts").textContent=0;
             document.querySelector("#shape").style.display="none";
-            document.querySelector("#gameOver").style.display="block";
+            document.querySelector("#modal-container").style.display="flex";
             document.querySelector("#timeTaken").textContent=dt+"s";
             document.querySelector("#totalTime").textContent=totalTime+"s";
             end_time.textContent="Reaction time: "+totalTime+"s";
-            document.querySelector("#gameOver").appendChild(end_time);
+            
         }
     }
-});
+}

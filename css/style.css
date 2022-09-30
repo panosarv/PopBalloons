@@ -1,5 +1,14 @@
+@import url("https://fonts.google.com/specimen/Roboto+Mono");
+
 body {
-    background-color: lightyellow;
+    display: flex;
+    background-color: rgb(76, 133, 218);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    color: whitesmoke;
+    font-family: "Roboto+Mono",monospace;
 }
 
 #shape {
@@ -17,20 +26,61 @@ body {
 }
 
 #gameOver {
-    position: absolute;
-    top: 300px;
-    left: 200px;
+    background-color: white;
     color: red;
     font-size: 400%;
-    display: none;
+    width: 1000px;
+    border: 5px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 30px 40px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    text-align: center;
 }
 
 #gameArea {
-    position: absolute;
-    border: 1px solid black;
+    border: 3px solid rgb(65, 104, 187);
     width: 800px;
     height: 500px;
-    left:20px;
-    top: 200px;
     background-color:aliceblue;
+    
+}
+
+.reset{
+    font-size: 16px;
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    margin-bottom: 30px ;
+    border: 2px solid rgb(65, 104, 187);
+    border-radius: 10%;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+    color:whitesmoke;
+    background-color: rgb(42, 54, 165);
+    
+}
+
+#modal-container{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.3);
+    align-items: center;
+    justify-content: center;
+}
+
+#attempts{
+    font-weight: bold;
+    font-size: large;
+}
+
+h1{
+    font-style: italic;
+    font-size: 60px;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 10px;
 }
